@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HemoCore — Tipos Sanguíneos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-light text-dark" style="font-family:'DM Sans',sans-serif; min-height:100vh;">
+
+<!-- Mobile drawer (Bootstrap Offcanvas) -->
+<div class="offcanvas offcanvas-start text-white border-0" tabindex="-1" id="hcDrawer" style="width: 280px; max-width: 85vw; background-color: #1A2332; z-index: 1045;">
+  <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3 px-3">
+    <div class="d-flex align-items-center gap-2">
+      <div class="bg-danger rounded-2 d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:32px; height:32px;">
+        <i class="bi bi-droplet-fill fs-6"></i>
+      </div>
+      <div>
+        <div style="font-family:'DM Serif Display',serif; font-size:16px; line-height:1;">HemoCore</div>
+        <div class="text-white text-opacity-50 text-uppercase" style="font-size:9px; letter-spacing:1px;">Banco de Sangue</div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-body p-2 d-flex flex-column overflow-auto">
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-2" style="font-size:9px; letter-spacing:1.6px;">Principal</div>
+    <a href="index.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-box-arrow-in-right fs-6"></i> Entrar</a>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Cadastros</div>
+    <a href="doador.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-person-heart fs-6"></i> Doadores</a>
+    <a href="hospital.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-hospital fs-6"></i> Hospitais</a>
+    <a href="doacao.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-droplet fs-6"></i> Doações</a>
+    <a href="recepcionista.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-person-badge fs-6"></i> Recepcionistas</a>
+    <a href="tipo_sanguineo.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white bg-danger fw-medium" style="font-size:13px;"><i class="bi bi-droplet-half fs-6"></i> Tipos Sanguíneos</a>
+    <a href="cidade.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-geo-alt fs-6"></i> Cidades</a>
+    <a href="unidade_coleta.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-building-add fs-6"></i> Unidades de Coleta</a>
+    <a href="solicitacao.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-file-earmark-medical fs-6"></i> Solicitações</a>
+    <a href="campanha.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-megaphone fs-6"></i> Campanhas</a>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Relatórios</div>
+    <div class="rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium user-select-none" style="font-size:13px; cursor:pointer;" data-bs-toggle="collapse" data-bs-target="#hcDrawerSub" aria-expanded="false">
+      <i class="bi bi-bar-chart-fill fs-6"></i> Relatórios <i class="bi bi-chevron-down ms-auto" style="font-size:11px;"></i>
+    </div>
+    <div class="collapse" id="hcDrawerSub">
+        <a href="rel_somatorio.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-bar-chart-line" style="font-size:13px;"></i> Somatório por Tipo</a>
+        <a href="rel_doadores.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-people" style="font-size:13px;"></i> Doadores Ativos</a>
+        <a href="rel_maiores_solicitantes.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-trophy" style="font-size:13px;"></i> Maiores Solicitantes</a>
+        <a href="rel_solicitacoes_hospital.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-clipboard2-pulse" style="font-size:13px;"></i> Sol. por Hospital</a>
+        <a href="rel_agenda_campanhas.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-calendar-event" style="font-size:13px;"></i> Agenda de Campanhas</a>
+        <a href="rel_coletas_cidade.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-geo-fill" style="font-size:13px;"></i> Coletas por Cidade</a>
+    </div>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Sistema</div>
+    <a href="#" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-gear fs-6"></i> Configurações</a>
+  </div>
+  <div class="mt-auto p-3 border-top border-light border-opacity-10 text-white text-opacity-25" style="font-size:11px;">
+    HemoCore v1.0.0 · © 2026
+  </div>
+</div>
+
+<!-- Fixed top navbar -->
+<header class="navbar fixed-top shadow-sm flex-nowrap align-items-center" style="height: 58px; background-color: #1A2332; z-index: 1040; padding: 0;">
+  
+  <button class="btn btn-link text-white d-md-none text-decoration-none ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#hcDrawer" style="width:36px; height:36px; padding:0; background:rgba(255,255,255,.08);">
+    <i class="bi bi-list fs-5"></i>
+  </button>
+
+  <a href="doador.html" class="d-flex align-items-center gap-2 text-decoration-none h-100 px-3 border-end border-light border-opacity-10" style="flex-shrink:0;">
+    <div class="bg-danger rounded-2 d-flex align-items-center justify-content-center text-white" style="width:32px; height:32px;">
+      <i class="bi bi-droplet-fill" style="font-size:15px;"></i>
+    </div>
+    <div>
+      <div class="text-white" style="font-family:'DM Serif Display',serif; font-size:16px; line-height:1; white-space:nowrap;">HemoCore</div>
+      <div class="text-white text-opacity-50 text-uppercase" style="font-size:8.5px; letter-spacing:1px; white-space:nowrap;">Banco de Sangue</div>
+    </div>
+  </a>
+
+  <!-- Desktop Nav Links -->
+  <nav class="d-none d-md-flex align-items-center h-100 flex-grow-1 px-1">
+    <a href="index.html" class="text-decoration-none text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 mx-1 h-100" style="font-size:13px; border-bottom: 2px solid transparent;"><i class="bi bi-box-arrow-in-right" style="font-size:14px;"></i> Entrar</a>
+    
+    <!-- Cadastros dropdown -->
+    <div class="dropdown h-100 d-flex align-items-center mx-1">
+      <div class="text-white fw-medium d-flex align-items-center gap-1 px-2 h-100 user-select-none" style="font-size:13px; cursor:pointer; border-bottom: 2px solid rgba(192,57,43,.6);" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-grid" style="font-size:14px;"></i> Cadastros <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i>
+      </div>
+      <ul class="dropdown-menu shadow-sm border border-light-subtle rounded-bottom-3 mt-0 pt-2 pb-2" style="min-width:220px; border-top:none; border-radius:0 0 12px 12px;">
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="doador.html" style="font-size:13px;"><i class="bi bi-person-heart text-secondary" style="font-size:14px;"></i> Doadores</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="hospital.html" style="font-size:13px;"><i class="bi bi-hospital text-secondary" style="font-size:14px;"></i> Hospitais</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="doacao.html" style="font-size:13px;"><i class="bi bi-droplet text-secondary" style="font-size:14px;"></i> Doações</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="recepcionista.html" style="font-size:13px;"><i class="bi bi-person-badge text-secondary" style="font-size:14px;"></i> Recepcionistas</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 fw-semibold text-danger" href="tipo_sanguineo.html" style="font-size:13px; background-color:#FDECEA;"><i class="bi bi-droplet-half text-danger" style="font-size:14px;"></i> Tipos Sanguíneos</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="cidade.html" style="font-size:13px;"><i class="bi bi-geo-alt text-secondary" style="font-size:14px;"></i> Cidades</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="unidade_coleta.html" style="font-size:13px;"><i class="bi bi-building-add text-secondary" style="font-size:14px;"></i> Unidades de Coleta</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="solicitacao.html" style="font-size:13px;"><i class="bi bi-file-earmark-medical text-secondary" style="font-size:14px;"></i> Solicitações</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="campanha.html" style="font-size:13px;"><i class="bi bi-megaphone text-secondary" style="font-size:14px;"></i> Campanhas</a></li>
+      </ul>
+    </div>
+
+    <!-- Relatórios dropdown -->
+    <div class="dropdown h-100 d-flex align-items-center mx-1">
+      <div class="text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 h-100 user-select-none" style="font-size:13px; cursor:pointer; border-bottom: 2px solid transparent;" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-bar-chart-fill" style="font-size:14px;"></i> Relatórios <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i>
+      </div>
+      <ul class="dropdown-menu shadow-sm border border-light-subtle rounded-bottom-3 mt-0 pt-2 pb-2" style="min-width:220px; border-top:none; border-radius:0 0 12px 12px;">
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_somatorio.html" style="font-size:13px;"><i class="bi bi-bar-chart-line text-secondary" style="font-size:14px;"></i> Somatório por Tipo</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_doadores.html" style="font-size:13px;"><i class="bi bi-people text-secondary" style="font-size:14px;"></i> Doadores Ativos</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_maiores_solicitantes.html" style="font-size:13px;"><i class="bi bi-trophy text-secondary" style="font-size:14px;"></i> Maiores Solicitantes</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_solicitacoes_hospital.html" style="font-size:13px;"><i class="bi bi-clipboard2-pulse text-secondary" style="font-size:14px;"></i> Sol. por Hospital</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_agenda_campanhas.html" style="font-size:13px;"><i class="bi bi-calendar-event text-secondary" style="font-size:14px;"></i> Agenda de Campanhas</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_coletas_cidade.html" style="font-size:13px;"><i class="bi bi-geo-fill text-secondary" style="font-size:14px;"></i> Coletas por Cidade</a></li>
+      </ul>
+    </div>
+
+    <a href="#" class="text-decoration-none text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 mx-1 h-100" style="font-size:13px; border-bottom: 2px solid transparent;"><i class="bi bi-gear" style="font-size:14px;"></i> Configurações</a>
+  </nav>
+
+  <!-- Navbar Right -->
+  <div class="d-flex align-items-center gap-2 ms-auto px-3 flex-shrink-0">
+    <div class="d-none d-lg-flex flex-column align-items-end text-white">
+      <span class="fw-semibold" style="font-size:12px; line-height:1.2;" id="hcUserName">Admin</span>
+      <span class="text-white text-opacity-50" style="font-size:10px;">Administrador</span>
+    </div>
+    <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width:30px; height:30px; font-size:11px;" id="hcAvatar">AD</div>
+  </div>
+</header>
+
+<!-- Main content wrapper -->
+<div class="d-flex flex-column" style="min-height: 100vh; padding-top: 58px;">
+  <!-- Page topbar -->
+  <div class="bg-white border-bottom d-flex align-items-center justify-content-between px-3 px-lg-4" style="height: 56px; gap: 10px;">
+    <div style="min-width:0;">
+      <div class="fw-bold text-dark" style="font-size:15px;">Tipos Sanguíneos</div>
+      <div class="text-secondary d-none d-sm-block" style="font-size:12px;">Gerenciamento de grupos e fatores sanguíneos</div>
+    </div>
+    <div class="d-flex align-items-center gap-2 flex-shrink-0">
+      <button class="btn btn-danger text-white fw-semibold d-inline-flex align-items-center gap-2 py-1 px-3 border-0 shadow-sm" style="font-size:13px; border-radius:8px; white-space:nowrap;" data-bs-toggle="modal" data-bs-target="#modalTipo" onclick="openCreate()">
+        <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Novo Tipo</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="flex-grow-1 p-3 p-sm-4 p-lg-4">
+
+    <!-- Stats -->
+    <div class="row row-cols-2 row-cols-lg-4 g-2 g-sm-3 g-lg-4 mb-3 mb-sm-4">
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#FDECEA; color:#C0392B;">
+            <i class="bi bi-droplet-half"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">8</div><div class="text-secondary mt-1" style="font-size:10.5px;">Tipos Cadastrados</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EAFAF1; color:#27AE60;">
+            <i class="bi bi-plus-circle-fill"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">4</div><div class="text-secondary mt-1" style="font-size:10.5px;">Fator Rh(+)</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#FEF9E7; color:#D4AC0D;">
+            <i class="bi bi-dash-circle-fill"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">4</div><div class="text-secondary mt-1" style="font-size:10.5px;">Fator Rh(−)</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EBF5FB; color:#2980B9;">
+            <i class="bi bi-moisture"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">4.000</div><div class="text-secondary mt-1" style="font-size:10.5px;">Qtd. Total (mL)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="alertContainer" class="mb-3"></div>
+
+    <!-- Table Card -->
+    <div class="card border border-light-subtle rounded-4 overflow-hidden" style="background:#fff;">
+      <div class="card-header bg-white border-bottom border-light-subtle p-3 p-sm-4 d-flex flex-column flex-md-row gap-3 justify-content-md-between align-items-md-center">
+        <div>
+          <h5 class="fw-bold mb-0" style="font-size:14px;">Lista de Tipos Sanguíneos</h5>
+          <p class="text-secondary mt-1 mb-0" style="font-size:11.5px;" id="countLabel">8 registros encontrados</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="position-relative flex-grow-1" style="min-width:140px;">
+            <i class="bi bi-search position-absolute text-secondary" style="left:9px; top:50%; transform:translateY(-50%); font-size:13px;"></i>
+            <input type="text" class="form-control focus-ring focus-ring-danger" placeholder="Buscar tipo…" id="searchInput" oninput="filterTable()" style="padding:7px 10px 7px 30px; border-radius:8px; font-size:13px; height:36px; border-color:#E2E8F0;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop table -->
+      <div class="table-responsive d-none d-md-block">
+        <table class="table table-borderless table-hover mb-0" style="font-size:13px;">
+          <thead style="background:#FAFBFC; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.7px; color:#718096; border-bottom:1px solid #E2E8F0;">
+            <tr>
+              <th class="py-2 px-3 fw-bold text-nowrap">ID</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Grupo ABO</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Fator Rh</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Tipo Completo</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Quantidade (mL)</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Descrição</th>
+              <th class="py-2 px-3 fw-bold text-nowrap text-end">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tipoTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Mobile list -->
+      <div class="d-flex flex-column d-md-none" id="tipoMobileList"></div>
+
+      <div class="card-footer bg-white border-top border-light-subtle p-3 d-flex align-items-center justify-content-between flex-wrap gap-2 text-secondary" style="font-size:12px;">
+        <span id="pageInfo">Exibindo 1–8 de 8 registros</span>
+        <div class="d-flex gap-1">
+          <button class="btn btn-outline-secondary btn-sm p-0 d-flex align-items-center justify-content-center" style="width:30px; height:30px; border-radius:7px; border-color:#E2E8F0; background:#fff; color:#718096;"><i class="bi bi-chevron-left"></i></button>
+          <button class="btn btn-danger btn-sm p-0 d-flex align-items-center justify-content-center fw-bold text-white border-0" style="width:30px; height:30px; border-radius:7px;">1</button>
+          <button class="btn btn-outline-secondary btn-sm p-0 d-flex align-items-center justify-content-center" style="width:30px; height:30px; border-radius:7px; border-color:#E2E8F0; background:#fff; color:#718096;"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL CRIAR/EDITAR -->
+<div class="modal fade" id="modalTipo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width:500px">
+    <div class="modal-content border-0" style="border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.15);">
+      <div class="modal-header border-bottom border-light-subtle p-3 p-sm-4" style="border-radius:16px 16px 0 0;">
+        <div>
+          <div class="fw-bold text-dark" style="font-size:15px;" id="modalTitle">Novo Tipo Sanguíneo</div>
+          <div class="text-secondary mt-1" style="font-size:11.5px;" id="modalSub">Cadastre um grupo ABO e fator Rh.</div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-3 p-sm-4">
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Identificação</div>
+        <div class="row g-3 mb-4">
+          <div class="col-12">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">ID</label>
+            <div class="position-relative">
+              <input type="text" class="form-control focus-ring focus-ring-danger text-secondary" id="fId" value="Gerado automaticamente" readonly style="background:#F4F6F9; border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px; cursor:not-allowed;">
+              <span class="position-absolute bg-danger text-white fw-bold text-uppercase rounded-1" style="right:10px; top:50%; transform:translateY(-50%); font-size:8.5px; letter-spacing:.8px; padding:2px 6px;">Auto</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Classificação</div>
+        <div class="row g-3 mb-4">
+          <div class="col-6">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Grupo ABO <span class="text-danger">*</span></label>
+            <select class="form-select focus-ring focus-ring-danger text-dark" id="fGrupo" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+              <option value="">Selecione…</option>
+              <option>A</option><option>B</option><option>AB</option><option>O</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Fator Rh <span class="text-danger">*</span></label>
+            <select class="form-select focus-ring focus-ring-danger text-dark" id="fRh" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+              <option value="Rh(+)">Rh(+)</option>
+              <option value="Rh(-)">Rh(−)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Estoque</div>
+        <div class="row g-3 mb-4">
+          <div class="col-12">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Quantidade em estoque (mL) <span class="text-danger">*</span></label>
+            <input type="number" class="form-control focus-ring focus-ring-danger text-dark" id="fQtd" value="500" min="0" step="50" placeholder="Ex: 500" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;"/>
+          </div>
+        </div>
+
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Informações Adicionais</div>
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Descrição</label>
+            <textarea class="form-control focus-ring focus-ring-danger text-dark" id="fDesc" placeholder="Observações ou notas sobre este tipo sanguíneo…" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px; resize:vertical; min-height:80px;"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-top border-light-subtle p-3 p-sm-4 d-flex justify-content-end gap-2" style="background:#FAFBFC; border-radius:0 0 16px 16px;">
+        <button class="btn btn-outline-secondary bg-white fw-semibold text-dark" data-bs-dismiss="modal" style="border-color:#E2E8F0; border-radius:8px; padding:7px 14px; font-size:13px;">Cancelar</button>
+        <button class="btn btn-danger fw-semibold d-inline-flex align-items-center gap-2 border-0 shadow-sm" onclick="saveTipo()" style="border-radius:8px; padding:7px 14px; font-size:13px;">
+          <i class="bi bi-floppy"></i> <span id="btnSaveLabel">Salvar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DELETAR -->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content border-0" style="border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.15);">
+      <div class="modal-body text-center py-4 px-3">
+        <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width:52px; height:52px; background:#FDECEA; color:#C0392B; font-size:22px;">
+          <i class="bi bi-trash3-fill"></i>
+        </div>
+        <h6 class="fw-bold mb-2" style="font-size:15px;">Excluir Tipo Sanguíneo?</h6>
+        <p class="text-secondary mb-3 pb-1" style="font-size:13px;" id="deleteMsg">Esta ação não pode ser desfeita.</p>
+        <div class="d-flex gap-2 justify-content-center">
+          <button class="btn btn-outline-secondary bg-white fw-semibold text-dark" data-bs-dismiss="modal" style="border-color:#E2E8F0; border-radius:8px; padding:7px 14px; font-size:13px;">Cancelar</button>
+          <button class="btn btn-danger fw-semibold d-inline-flex align-items-center gap-2 border-0 shadow-sm" onclick="confirmDelete()" style="border-radius:8px; padding:7px 14px; font-size:13px;">
+            <i class="bi bi-trash3"></i> Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let tipos = [
+    {id:'TS-001',grupo:'A', rh:'Rh(+)',quantidade:500, desc:'Tipo mais comum no Brasil.'},
+    {id:'TS-002',grupo:'A', rh:'Rh(-)',quantidade:200, desc:'Pode ser doado para A- e A+.'},
+    {id:'TS-003',grupo:'B', rh:'Rh(+)',quantidade:450, desc:'Aceita sangue B+ e O+.'},
+    {id:'TS-004',grupo:'B', rh:'Rh(-)',quantidade:150, desc:'Pode receber B- e O-.'},
+    {id:'TS-005',grupo:'AB',rh:'Rh(+)',quantidade:300, desc:'Receptor universal.'},
+    {id:'TS-006',grupo:'AB',rh:'Rh(-)',quantidade:100, desc:'Doador universal de plasma.'},
+    {id:'TS-007',grupo:'O', rh:'Rh(+)',quantidade:600, desc:'Doador universal para Rh+.'},
+    {id:'TS-008',grupo:'O', rh:'Rh(-)',quantidade:250, desc:'Doador universal total.'},
+  ];
+  let editingId=null,deletingId=null,nextId=9;
+
+  function rhClass(rh){return rh==='Rh(+)'?'bg-success-subtle text-success':'bg-warning-subtle text-warning-emphasis';}
+  function tipoCompleto(g,rh){return `${g}${rh==='Rh(+)'?'+':'-'}`;}
+
+  function renderTable(data){
+    document.getElementById('countLabel').textContent=`${data.length} registro${data.length!==1?'s':''} encontrado${data.length!==1?'s':''}`;
+    const empty=`<div class="text-center text-secondary py-5 px-3" style="font-size:13.5px;"><i class="bi bi-inbox d-block mb-2 opacity-50" style="font-size:30px;"></i>Nenhum tipo sanguíneo encontrado.</div>`;
+    if(!data.length){document.getElementById('tipoTableBody').innerHTML=`<tr><td colspan="7" class="p-0 border-0">${empty}</td></tr>`;document.getElementById('tipoMobileList').innerHTML=empty;return;}
+    
+    document.getElementById('tipoTableBody').innerHTML=data.map(t=>`
+      <tr class="align-middle">
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="d-inline-block text-secondary fw-bold rounded px-2" style="font-size:10.5px; background:#F4F6F9; padding-top:1px; padding-bottom:1px;">${t.id}</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><strong class="text-dark" style="font-size:15px">${t.grupo}</strong></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="fw-bold rounded" style="font-size:11px; padding:2px 8px; ${t.rh==='Rh(+)'?'background:#EAFAF1; color:#1E8449;':'background:#FEF9E7; color:#B7950B;'}">${t.rh}</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="fw-bold rounded" style="font-size:13px; padding:3px 10px; background:#FDECEA; color:#C0392B;">${tipoCompleto(t.grupo,t.rh)}</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="fw-bold rounded" style="font-size:11px; padding:2px 8px; background:#EBF5FB; color:#1A6496;">${t.quantidade.toLocaleString('pt-BR')} mL</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle" style="font-size:12.5px;color:#718096;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${t.desc||'—'}</td>
+        <td class="py-3 px-3 border-bottom border-light-subtle text-end"><div class="d-flex gap-1 justify-content-end">
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#718096;" onclick="openEdit('${t.id}')" data-bs-toggle="modal" data-bs-target="#modalTipo" title="Editar"><i class="bi bi-pencil" style="font-size:13px;"></i></button>
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#C0392B;" onclick="openDelete('${t.id}')" data-bs-toggle="modal" data-bs-target="#modalDelete" title="Excluir"><i class="bi bi-trash3" style="font-size:13px;"></i></button>
+        </div></td>
+      </tr>`).join('');
+      
+    document.getElementById('tipoMobileList').innerHTML=data.map((t, i)=>`
+      <div class="p-3 d-flex align-items-start gap-2 ${i !== data.length - 1 ? 'border-bottom border-light-subtle' : ''}">
+        <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; background:#FDECEA; color:#C0392B; font-size:16px; font-weight:800;">${tipoCompleto(t.grupo,t.rh)}</div>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div class="d-inline-block text-secondary fw-bold rounded px-1 mb-1" style="font-size:10px; background:#F4F6F9;">${t.id}</div>
+          <div class="fw-bold text-dark" style="font-size:13.5px;">Grupo ${t.grupo} · ${t.rh}</div>
+          <div class="text-secondary mt-1 text-truncate" style="font-size:11.5px;">${t.desc||'Sem descrição'}</div>
+          <div class="d-flex flex-wrap gap-1 mt-2 align-items-center">
+            <span class="fw-bold rounded" style="font-size:11px; padding:2px 8px; background:#EBF5FB; color:#1A6496;">${t.quantidade.toLocaleString('pt-BR')} mL</span>
+            <span class="fw-bold rounded" style="font-size:11px; padding:2px 8px; ${t.rh==='Rh(+)'?'background:#EAFAF1; color:#1E8449;':'background:#FEF9E7; color:#B7950B;'}">${t.rh}</span>
+          </div>
+        </div>
+        <div class="d-flex gap-1 flex-shrink-0">
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#718096;" onclick="openEdit('${t.id}')" data-bs-toggle="modal" data-bs-target="#modalTipo"><i class="bi bi-pencil" style="font-size:13px;"></i></button>
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#C0392B;" onclick="openDelete('${t.id}')" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bi bi-trash3" style="font-size:13px;"></i></button>
+        </div>
+      </div>`).join('');
+  }
+
+  function filterTable(){
+    const q=document.getElementById('searchInput').value.toLowerCase();
+    renderTable(tipos.filter(t=>t.grupo.toLowerCase().includes(q)||t.rh.toLowerCase().includes(q)||tipoCompleto(t.grupo,t.rh).toLowerCase().includes(q)||(t.desc||'').toLowerCase().includes(q)));
+  }
+  function openCreate(){
+    editingId=null;
+    document.getElementById('modalTitle').textContent='Novo Tipo Sanguíneo';
+    document.getElementById('modalSub').textContent='Cadastre um grupo ABO e fator Rh.';
+    document.getElementById('btnSaveLabel').textContent='Salvar';
+    document.getElementById('fId').value='Gerado automaticamente';
+    document.getElementById('fGrupo').value='';
+    document.getElementById('fRh').value='Rh(+)';
+    document.getElementById('fQtd').value=500;
+    document.getElementById('fDesc').value='';
+  }
+  function openEdit(id){
+    const t=tipos.find(x=>x.id===id); if(!t)return;
+    editingId=id;
+    document.getElementById('modalTitle').textContent='Editar Tipo Sanguíneo';
+    document.getElementById('modalSub').textContent=`Editando: ${tipoCompleto(t.grupo,t.rh)}`;
+    document.getElementById('btnSaveLabel').textContent='Atualizar';
+    document.getElementById('fId').value=t.id;
+    document.getElementById('fGrupo').value=t.grupo;
+    document.getElementById('fRh').value=t.rh;
+    document.getElementById('fQtd').value=t.quantidade;
+    document.getElementById('fDesc').value=t.desc||'';
+  }
+  function saveTipo(){
+    const grupo=document.getElementById('fGrupo').value;
+    const rh=document.getElementById('fRh').value;
+    const qtd=parseInt(document.getElementById('fQtd').value)||0;
+    const desc=document.getElementById('fDesc').value.trim();
+    if(!grupo||!rh||qtd<0){showAlert('danger','<i class="bi bi-exclamation-triangle-fill"></i> Preencha todos os campos obrigatórios.');return;}
+    if(editingId){
+      tipos[tipos.findIndex(x=>x.id===editingId)]={id:editingId,grupo,rh,quantidade:qtd,desc};
+      showAlert('success',`<i class="bi bi-check-circle-fill"></i> Tipo <strong class="ms-1">${tipoCompleto(grupo,rh)}</strong> atualizado!`);
+    }else{
+      tipos.push({id:`TS-${String(nextId++).padStart(3,'0')}`,grupo,rh,quantidade:qtd,desc});
+      showAlert('success',`<i class="bi bi-check-circle-fill"></i> Tipo <strong class="ms-1">${tipoCompleto(grupo,rh)}</strong> cadastrado!`);
+    }
+    bootstrap.Modal.getInstance(document.getElementById('modalTipo')).hide();
+    renderTable(tipos);
+  }
+  function openDelete(id){deletingId=id;const t=tipos.find(x=>x.id===id);document.getElementById('deleteMsg').textContent=`Excluir o tipo ${tipoCompleto(t?.grupo,t?.rh)}? Esta ação não pode ser desfeita.`;}
+  function confirmDelete(){
+    const t=tipos.find(x=>x.id===deletingId);
+    tipos=tipos.filter(x=>x.id!==deletingId);
+    bootstrap.Modal.getInstance(document.getElementById('modalDelete')).hide();
+    renderTable(tipos);
+    showAlert('warning',`<i class="bi bi-info-circle-fill"></i> Tipo <strong class="ms-1">${tipoCompleto(t?.grupo,t?.rh)}</strong> removido.`);
+    deletingId=null;
+  }
+  function showAlert(type,html){
+    const c={
+      success:{bg:'bg-success-subtle', text:'text-success', border:'border-success-subtle'},
+      danger:{bg:'bg-danger-subtle', text:'text-danger', border:'border-danger-subtle'},
+      warning:{bg:'bg-warning-subtle', text:'text-warning-emphasis', border:'border-warning-subtle'}
+    }[type];
+    const el=document.createElement('div');
+    el.className=`alert ${c.bg} ${c.text} border ${c.border} d-flex align-items-center gap-2 py-2 px-3 shadow-sm mb-0`;
+    el.style.cssText=`border-radius:10px; font-size:13px; transition:opacity .4s;`;
+    el.innerHTML=html;
+    const cont=document.getElementById('alertContainer'); cont.innerHTML=''; cont.appendChild(el);
+    setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),400);},4000);
+  }
+  
+  
+  renderTable(tipos);
+</script>
+</body>
+</html>

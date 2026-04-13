@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HemoCore — Hospitais</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-light text-dark" style="font-family:'DM Sans',sans-serif; min-height:100vh;">
+
+<!-- Mobile drawer (Bootstrap Offcanvas) -->
+<div class="offcanvas offcanvas-start text-white border-0" tabindex="-1" id="hcDrawer" style="width: 280px; max-width: 85vw; background-color: #1A2332; z-index: 1045;">
+  <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3 px-3">
+    <div class="d-flex align-items-center gap-2">
+      <div class="bg-danger rounded-2 d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:32px; height:32px;">
+        <i class="bi bi-droplet-fill fs-6"></i>
+      </div>
+      <div>
+        <div style="font-family:'DM Serif Display',serif; font-size:16px; line-height:1;">HemoCore</div>
+        <div class="text-white text-opacity-50 text-uppercase" style="font-size:9px; letter-spacing:1px;">Banco de Sangue</div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-body p-2 d-flex flex-column overflow-auto">
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-2" style="font-size:9px; letter-spacing:1.6px;">Principal</div>
+    <a href="index.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-box-arrow-in-right fs-6"></i> Entrar</a>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Cadastros</div>
+    <a href="doador.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-person-heart fs-6"></i> Doadores</a>
+    <a href="hospital.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white bg-danger fw-medium" style="font-size:13px;"><i class="bi bi-hospital fs-6"></i> Hospitais</a>
+    <a href="doacao.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-droplet fs-6"></i> Doações</a>
+    <a href="recepcionista.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-person-badge fs-6"></i> Recepcionistas</a>
+    <a href="tipo_sanguineo.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-droplet-half fs-6"></i> Tipos Sanguíneos</a>
+    <a href="cidade.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-geo-alt fs-6"></i> Cidades</a>
+    <a href="unidade_coleta.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-building-add fs-6"></i> Unidades de Coleta</a>
+    <a href="solicitacao.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-file-earmark-medical fs-6"></i> Solicitações</a>
+    <a href="campanha.html" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-megaphone fs-6"></i> Campanhas</a>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Relatórios</div>
+    <div class="rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium user-select-none" style="font-size:13px; cursor:pointer;" data-bs-toggle="collapse" data-bs-target="#hcDrawerSub" aria-expanded="false">
+      <i class="bi bi-bar-chart-fill fs-6"></i> Relatórios <i class="bi bi-chevron-down ms-auto" style="font-size:11px;"></i>
+    </div>
+    <div class="collapse" id="hcDrawerSub">
+        <a href="rel_somatorio.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-bar-chart-line" style="font-size:13px;"></i> Somatório por Tipo</a>
+        <a href="rel_doadores.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-people" style="font-size:13px;"></i> Doadores Ativos</a>
+        <a href="rel_maiores_solicitantes.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-trophy" style="font-size:13px;"></i> Maiores Solicitantes</a>
+        <a href="rel_solicitacoes_hospital.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-clipboard2-pulse" style="font-size:13px;"></i> Sol. por Hospital</a>
+        <a href="rel_agenda_campanhas.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-calendar-event" style="font-size:13px;"></i> Agenda de Campanhas</a>
+        <a href="rel_coletas_cidade.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-geo-fill" style="font-size:13px;"></i> Coletas por Cidade</a>
+    </div>
+
+    <div class="text-white text-opacity-25 text-uppercase px-2 mb-1 mt-3" style="font-size:9px; letter-spacing:1.6px;">Sistema</div>
+    <a href="#" class="text-decoration-none rounded-2 px-2 py-2 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50 fw-medium" style="font-size:13px;"><i class="bi bi-gear fs-6"></i> Configurações</a>
+  </div>
+  <div class="mt-auto p-3 border-top border-light border-opacity-10 text-white text-opacity-25" style="font-size:11px;">
+    HemoCore v1.0.0 · © 2026
+  </div>
+</div>
+
+<!-- Fixed top navbar -->
+<header class="navbar fixed-top shadow-sm flex-nowrap align-items-center" style="height: 58px; background-color: #1A2332; z-index: 1040; padding: 0;">
+  
+  <button class="btn btn-link text-white d-md-none text-decoration-none ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#hcDrawer" style="width:36px; height:36px; padding:0; background:rgba(255,255,255,.08);">
+    <i class="bi bi-list fs-5"></i>
+  </button>
+
+  <a href="doador.html" class="d-flex align-items-center gap-2 text-decoration-none h-100 px-3 border-end border-light border-opacity-10" style="flex-shrink:0;">
+    <div class="bg-danger rounded-2 d-flex align-items-center justify-content-center text-white" style="width:32px; height:32px;">
+      <i class="bi bi-droplet-fill" style="font-size:15px;"></i>
+    </div>
+    <div>
+      <div class="text-white" style="font-family:'DM Serif Display',serif; font-size:16px; line-height:1; white-space:nowrap;">HemoCore</div>
+      <div class="text-white text-opacity-50 text-uppercase" style="font-size:8.5px; letter-spacing:1px; white-space:nowrap;">Banco de Sangue</div>
+    </div>
+  </a>
+
+  <!-- Desktop Nav Links -->
+  <nav class="d-none d-md-flex align-items-center h-100 flex-grow-1 px-1">
+    <a href="index.html" class="text-decoration-none text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 mx-1 h-100" style="font-size:13px; border-bottom: 2px solid transparent;"><i class="bi bi-box-arrow-in-right" style="font-size:14px;"></i> Entrar</a>
+    
+    <!-- Cadastros dropdown -->
+    <div class="dropdown h-100 d-flex align-items-center mx-1">
+      <div class="text-white fw-medium d-flex align-items-center gap-1 px-2 h-100 user-select-none" style="font-size:13px; cursor:pointer; border-bottom: 2px solid rgba(192,57,43,.6);" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-grid" style="font-size:14px;"></i> Cadastros <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i>
+      </div>
+      <ul class="dropdown-menu shadow-sm border border-light-subtle rounded-bottom-3 mt-0 pt-2 pb-2" style="min-width:220px; border-top:none; border-radius:0 0 12px 12px;">
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="doador.html" style="font-size:13px;"><i class="bi bi-person-heart text-secondary" style="font-size:14px;"></i> Doadores</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 fw-semibold text-danger" href="hospital.html" style="font-size:13px; background-color:#FDECEA;"><i class="bi bi-hospital text-danger" style="font-size:14px;"></i> Hospitais</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="doacao.html" style="font-size:13px;"><i class="bi bi-droplet text-secondary" style="font-size:14px;"></i> Doações</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="recepcionista.html" style="font-size:13px;"><i class="bi bi-person-badge text-secondary" style="font-size:14px;"></i> Recepcionistas</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="tipo_sanguineo.html" style="font-size:13px;"><i class="bi bi-droplet-half text-secondary" style="font-size:14px;"></i> Tipos Sanguíneos</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="cidade.html" style="font-size:13px;"><i class="bi bi-geo-alt text-secondary" style="font-size:14px;"></i> Cidades</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="unidade_coleta.html" style="font-size:13px;"><i class="bi bi-building-add text-secondary" style="font-size:14px;"></i> Unidades de Coleta</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="solicitacao.html" style="font-size:13px;"><i class="bi bi-file-earmark-medical text-secondary" style="font-size:14px;"></i> Solicitações</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="campanha.html" style="font-size:13px;"><i class="bi bi-megaphone text-secondary" style="font-size:14px;"></i> Campanhas</a></li>
+      </ul>
+    </div>
+
+    <!-- Relatórios dropdown -->
+    <div class="dropdown h-100 d-flex align-items-center mx-1">
+      <div class="text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 h-100 user-select-none" style="font-size:13px; cursor:pointer; border-bottom: 2px solid transparent;" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-bar-chart-fill" style="font-size:14px;"></i> Relatórios <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i>
+      </div>
+      <ul class="dropdown-menu shadow-sm border border-light-subtle rounded-bottom-3 mt-0 pt-2 pb-2" style="min-width:220px; border-top:none; border-radius:0 0 12px 12px;">
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_somatorio.html" style="font-size:13px;"><i class="bi bi-bar-chart-line text-secondary" style="font-size:14px;"></i> Somatório por Tipo</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_doadores.html" style="font-size:13px;"><i class="bi bi-people text-secondary" style="font-size:14px;"></i> Doadores Ativos</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_maiores_solicitantes.html" style="font-size:13px;"><i class="bi bi-trophy text-secondary" style="font-size:14px;"></i> Maiores Solicitantes</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_solicitacoes_hospital.html" style="font-size:13px;"><i class="bi bi-clipboard2-pulse text-secondary" style="font-size:14px;"></i> Sol. por Hospital</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_agenda_campanhas.html" style="font-size:13px;"><i class="bi bi-calendar-event text-secondary" style="font-size:14px;"></i> Agenda de Campanhas</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_coletas_cidade.html" style="font-size:13px;"><i class="bi bi-geo-fill text-secondary" style="font-size:14px;"></i> Coletas por Cidade</a></li>
+      </ul>
+    </div>
+
+    <a href="#" class="text-decoration-none text-white text-opacity-50 fw-medium d-flex align-items-center gap-1 px-2 mx-1 h-100" style="font-size:13px; border-bottom: 2px solid transparent;"><i class="bi bi-gear" style="font-size:14px;"></i> Configurações</a>
+  </nav>
+
+  <!-- Navbar Right -->
+  <div class="d-flex align-items-center gap-2 ms-auto px-3 flex-shrink-0">
+    <div class="d-none d-lg-flex flex-column align-items-end text-white">
+      <span class="fw-semibold" style="font-size:12px; line-height:1.2;" id="hcUserName">Admin</span>
+      <span class="text-white text-opacity-50" style="font-size:10px;">Administrador</span>
+    </div>
+    <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width:30px; height:30px; font-size:11px;" id="hcAvatar">AD</div>
+  </div>
+</header>
+
+<!-- Main content wrapper -->
+<div class="d-flex flex-column" style="min-height: 100vh; padding-top: 58px;">
+  <!-- Page topbar -->
+  <div class="bg-white border-bottom d-flex align-items-center justify-content-between px-3 px-lg-4" style="height: 56px; gap: 10px;">
+    <div style="min-width:0;">
+      <div class="fw-bold text-dark" style="font-size:15px;">Hospitais</div>
+      <div class="text-secondary d-none d-sm-block" style="font-size:12px;">Gerenciamento de hospitais parceiros</div>
+    </div>
+    <div class="d-flex align-items-center gap-2 flex-shrink-0">
+      <button class="btn btn-danger text-white fw-semibold d-inline-flex align-items-center gap-2 py-1 px-3 border-0 shadow-sm" style="font-size:13px; border-radius:8px; white-space:nowrap;" data-bs-toggle="modal" data-bs-target="#modalHospital" onclick="openCreate()">
+        <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Novo Hospital</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="flex-grow-1 p-3 p-sm-4 p-lg-4">
+
+    <!-- Stats -->
+    <div class="row row-cols-2 row-cols-lg-4 g-2 g-sm-3 g-lg-4 mb-3 mb-sm-4">
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#FDECEA; color:#C0392B;">
+            <i class="bi bi-hospital-fill"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">48</div><div class="text-secondary mt-1" style="font-size:10.5px;">Total</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EBF5FB; color:#2980B9;">
+            <i class="bi bi-building"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">22</div><div class="text-secondary mt-1" style="font-size:10.5px;">Públicos</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#F4ECF7; color:#8E44AD;">
+            <i class="bi bi-briefcase"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">18</div><div class="text-secondary mt-1" style="font-size:10.5px;">Privados</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="bg-white border border-light-subtle rounded-3 p-2 p-sm-3 d-flex align-items-center gap-2 gap-sm-3">
+          <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EAFAF1; color:#27AE60;">
+            <i class="bi bi-heart"></i>
+          </div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">8</div><div class="text-secondary mt-1" style="font-size:10.5px;">Filantrópicos</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="alertContainer" class="mb-3"></div>
+
+    <!-- Table Card -->
+    <div class="card border border-light-subtle rounded-4 overflow-hidden" style="background:#fff;">
+      <div class="card-header bg-white border-bottom border-light-subtle p-3 p-sm-4 d-flex flex-column flex-md-row gap-3 justify-content-md-between align-items-md-center">
+        <div>
+          <h5 class="fw-bold mb-0" style="font-size:14px;">Lista de Hospitais</h5>
+          <p class="text-secondary mt-1 mb-0" style="font-size:11.5px;" id="countLabel">6 registros encontrados</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="position-relative flex-grow-1" style="min-width:140px;">
+            <i class="bi bi-search position-absolute text-secondary" style="left:9px; top:50%; transform:translateY(-50%); font-size:13px;"></i>
+            <input type="text" class="form-control focus-ring focus-ring-danger" placeholder="Buscar hospital…" id="searchInput" oninput="filterTable()" style="padding:7px 10px 7px 30px; border-radius:8px; font-size:13px; height:36px; border-color:#E2E8F0;">
+          </div>
+          <select class="form-select focus-ring focus-ring-danger flex-shrink-0 w-auto" id="filterTipo" onchange="filterTable()" style="border-radius:8px; font-size:12.5px; height:36px; border-color:#E2E8F0;">
+            <option value="">Todos os tipos</option>
+            <option>Público</option><option>Privado</option><option>Filantrópico</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Desktop table -->
+      <div class="table-responsive d-none d-md-block">
+        <table class="table table-borderless table-hover mb-0" style="font-size:13px;">
+          <thead style="background:#FAFBFC; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.7px; color:#718096; border-bottom:1px solid #E2E8F0;">
+            <tr>
+              <th class="py-2 px-3 fw-bold text-nowrap">ID</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Hospital</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Sigla</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">UF / Cidade</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Telefone</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">CNPJ</th>
+              <th class="py-2 px-3 fw-bold text-nowrap">Tipo</th>
+              <th class="py-2 px-3 fw-bold text-nowrap text-end">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="hospitalTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Mobile list -->
+      <div class="d-flex flex-column d-md-none" id="hospitalMobileList"></div>
+
+      <div class="card-footer bg-white border-top border-light-subtle p-3 d-flex align-items-center justify-content-between flex-wrap gap-2 text-secondary" style="font-size:12px;">
+        <span id="pageInfo">Exibindo 1–6 de 6 registros</span>
+        <div class="d-flex gap-1">
+          <button class="btn btn-outline-secondary btn-sm p-0 d-flex align-items-center justify-content-center" style="width:30px; height:30px; border-radius:7px; border-color:#E2E8F0; background:#fff; color:#718096;"><i class="bi bi-chevron-left"></i></button>
+          <button class="btn btn-danger btn-sm p-0 d-flex align-items-center justify-content-center fw-bold text-white border-0" style="width:30px; height:30px; border-radius:7px;">1</button>
+          <button class="btn btn-outline-secondary btn-sm p-0 d-flex align-items-center justify-content-center" style="width:30px; height:30px; border-radius:7px; border-color:#E2E8F0; background:#fff; color:#718096;">2</button>
+          <button class="btn btn-outline-secondary btn-sm p-0 d-flex align-items-center justify-content-center" style="width:30px; height:30px; border-radius:7px; border-color:#E2E8F0; background:#fff; color:#718096;"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL CRIAR/EDITAR -->
+<div class="modal fade" id="modalHospital" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0" style="border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.15);">
+      <div class="modal-header border-bottom border-light-subtle p-3 p-sm-4" style="border-radius:16px 16px 0 0;">
+        <div>
+          <div class="fw-bold text-dark" style="font-size:15px;" id="modalTitle">Novo Hospital</div>
+          <div class="text-secondary mt-1" style="font-size:11.5px;" id="modalSub">Preencha os dados do hospital.</div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-3 p-sm-4">
+        
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Identificação</div>
+        <div class="row g-3 mb-4">
+          <div class="col-12 col-md-3">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">ID</label>
+            <div class="position-relative">
+              <input type="text" class="form-control focus-ring focus-ring-danger text-secondary" id="fId" value="Gerado automaticamente" readonly style="background:#F4F6F9; border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px; cursor:not-allowed;">
+              <span class="position-absolute bg-danger text-white fw-bold text-uppercase rounded-1" style="right:10px; top:50%; transform:translateY(-50%); font-size:8.5px; letter-spacing:.8px; padding:2px 6px;">Auto</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Nome <span class="text-danger">*</span></label>
+            <input type="text" class="form-control focus-ring focus-ring-danger text-dark" id="fNome" placeholder="Ex: Hospital Santa Casa" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+          </div>
+          <div class="col-6 col-md-3">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Sigla <span class="text-danger">*</span></label>
+            <input type="text" class="form-control focus-ring focus-ring-danger text-dark" id="fSigla" placeholder="HSC" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+          </div>
+        </div>
+        
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Localização</div>
+        <div class="row g-3 mb-4">
+          <div class="col-5 col-md-3">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">UF <span class="text-danger">*</span></label>
+            <select class="form-select focus-ring focus-ring-danger text-dark" id="fUF" onchange="populateCidades('fCidade',this.value)" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+              <option value="">Selecione…</option>
+              <option>ES</option><option>SP</option><option>RJ</option><option>MG</option><option>BA</option><option>PR</option>
+            </select>
+          </div>
+          <div class="col-7 col-md-9">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Cidade <span class="text-danger">*</span></label>
+            <select class="form-select focus-ring focus-ring-danger text-dark" id="fCidade" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;"><option value="">Selecione a UF…</option></select>
+          </div>
+        </div>
+        
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Contato</div>
+        <div class="row g-3 mb-4">
+          <div class="col-12 col-sm-6">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Telefone <span class="text-danger">*</span></label>
+            <input type="tel" class="form-control focus-ring focus-ring-danger text-dark" id="fTelefone" placeholder="(28) 3333-0000" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+          </div>
+          <div class="col-12 col-sm-6">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">CNPJ <span class="text-danger">*</span></label>
+            <input type="text" class="form-control focus-ring focus-ring-danger text-dark" id="fCNPJ" placeholder="00.000.000/0000-00" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+          </div>
+        </div>
+        
+        <div class="fw-bold text-secondary text-uppercase border-bottom border-light-subtle pb-1 mb-3" style="font-size:10px; letter-spacing:1.1px;">Classificação</div>
+        <div class="row g-3">
+          <div class="col-12 col-sm-5">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Tipo <span class="text-danger">*</span></label>
+            <select class="form-select focus-ring focus-ring-danger text-dark" id="fTipo" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;"><option>Público</option><option>Privado</option><option>Filantrópico</option></select>
+          </div>
+          <div class="col-12 col-sm-7">
+            <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Observações</label>
+            <input type="text" class="form-control focus-ring focus-ring-danger text-dark" id="fObs" placeholder="Informações adicionais (opcional)" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-top border-light-subtle p-3 p-sm-4 d-flex justify-content-end gap-2" style="background:#FAFBFC; border-radius:0 0 16px 16px;">
+        <button class="btn btn-outline-secondary bg-white fw-semibold text-dark" data-bs-dismiss="modal" style="border-color:#E2E8F0; border-radius:8px; padding:7px 14px; font-size:13px;">Cancelar</button>
+        <button class="btn btn-danger fw-semibold d-inline-flex align-items-center gap-2 border-0 shadow-sm" onclick="saveHospital()" style="border-radius:8px; padding:7px 14px; font-size:13px;">
+          <i class="bi bi-floppy"></i> <span id="btnSaveLabel">Salvar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DELETAR -->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content border-0" style="border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.15);">
+      <div class="modal-body text-center py-4 px-3">
+        <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width:52px; height:52px; background:#FDECEA; color:#C0392B; font-size:22px;">
+          <i class="bi bi-trash3-fill"></i>
+        </div>
+        <h6 class="fw-bold mb-2" style="font-size:15px;">Excluir Hospital?</h6>
+        <p class="text-secondary mb-3 pb-1" style="font-size:13px;" id="deleteMsg">Esta ação não pode ser desfeita.</p>
+        <div class="d-flex gap-2 justify-content-center">
+          <button class="btn btn-outline-secondary bg-white fw-semibold text-dark" data-bs-dismiss="modal" style="border-color:#E2E8F0; border-radius:8px; padding:7px 14px; font-size:13px;">Cancelar</button>
+          <button class="btn btn-danger fw-semibold d-inline-flex align-items-center gap-2 border-0 shadow-sm" onclick="confirmDelete()" style="border-radius:8px; padding:7px 14px; font-size:13px;">
+            <i class="bi bi-trash3"></i> Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let hospitais=[
+    {id:'H-001',nome:'Hospital Estadual Central',           sigla:'HEC', uf:'ES',cidade:'Vitória',                   telefone:'(27) 3333-1100',cnpj:'11.222.333/0001-44',tipo:'Público'},
+    {id:'H-002',nome:'Hospital Santa Casa de Misericórdia', sigla:'HSCM',uf:'SP',cidade:'São Paulo',                 telefone:'(11) 3344-5566',cnpj:'22.333.444/0001-55',tipo:'Filantrópico'},
+    {id:'H-003',nome:'Clínica São Lucas',                   sigla:'CSL', uf:'RJ',cidade:'Rio de Janeiro',            telefone:'(21) 2255-6677',cnpj:'33.444.555/0001-66',tipo:'Privado'},
+    {id:'H-004',nome:'UPA Cachoeiro',                       sigla:'UPAC',uf:'ES',cidade:'Cachoeiro de Itapemirim',   telefone:'(28) 3377-8899',cnpj:'44.555.666/0001-77',tipo:'Público'},
+    {id:'H-005',nome:'Hospital Mater Dei',                  sigla:'HMD', uf:'MG',cidade:'Belo Horizonte',            telefone:'(31) 3388-9900',cnpj:'55.666.777/0001-88',tipo:'Privado'},
+    {id:'H-006',nome:'Hospital Filantrópico do Sul',        sigla:'HFS', uf:'PR',cidade:'Curitiba',                  telefone:'(41) 3399-0011',cnpj:'66.777.888/0001-99',tipo:'Filantrópico'},
+  ];
+  const cidadesMap={ES:['Vitória','Serra','Cachoeiro de Itapemirim','Linhares','Colatina'],SP:['São Paulo','Campinas','Santos','Ribeirão Preto'],RJ:['Rio de Janeiro','Niterói','Campos dos Goytacazes'],MG:['Belo Horizonte','Uberlândia','Contagem'],BA:['Salvador','Feira de Santana','Vitória da Conquista'],PR:['Curitiba','Londrina','Maringá']};
+  let editingId=null,deletingId=null,nextId=7;
+
+  function tipoClass(t){return t==='Público'?'bg-primary-subtle text-primary-emphasis':t==='Privado'?'bg-body-secondary text-dark':'bg-success-subtle text-success';}
+  function populateCidades(selId,uf){const s=document.getElementById(selId);s.innerHTML='<option value="">Selecione…</option>';(cidadesMap[uf]||[]).forEach(c=>s.innerHTML+=`<option>${c}</option>`);}
+
+  function renderTable(data){
+    document.getElementById('countLabel').textContent=`${data.length} registro${data.length!==1?'s':''} encontrado${data.length!==1?'s':''}`;
+    const empty=`<div class="text-center text-secondary py-5 px-3" style="font-size:13.5px;"><i class="bi bi-inbox d-block mb-2 opacity-50" style="font-size:30px;"></i>Nenhum hospital encontrado.</div>`;
+    if(!data.length){document.getElementById('hospitalTableBody').innerHTML=`<tr><td colspan="8" class="p-0 border-0">${empty}</td></tr>`;document.getElementById('hospitalMobileList').innerHTML=empty;return;}
+    
+    document.getElementById('hospitalTableBody').innerHTML=data.map(h=>`
+      <tr class="align-middle">
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="d-inline-block text-secondary fw-bold rounded px-2" style="font-size:10.5px; background:#F4F6F9; padding-top:1px; padding-bottom:1px;">${h.id}</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><div class="d-flex align-items-center gap-2"><div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:30px; height:30px; background:#EBF5FB; color:#2980B9; font-size:13px;"><i class="bi bi-hospital"></i></div><strong class="text-dark">${h.nome}</strong></div></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><code class="fw-bold" style="background:#F4F6F9;padding:2px 6px;border-radius:5px;font-size:11.5px;color:#718096;">${h.sigla}</code></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle text-dark" style="font-size:12.5px">${h.uf} / ${h.cidade}</td>
+        <td class="py-3 px-3 border-bottom border-light-subtle text-dark" style="font-size:12.5px">${h.telefone}</td>
+        <td class="py-3 px-3 border-bottom border-light-subtle text-dark" style="font-family:monospace;font-size:11.5px">${h.cnpj}</td>
+        <td class="py-3 px-3 border-bottom border-light-subtle"><span class="fw-semibold rounded-pill ${tipoClass(h.tipo)}" style="font-size:11px; padding:2px 9px;">${h.tipo}</span></td>
+        <td class="py-3 px-3 border-bottom border-light-subtle text-end"><div class="d-flex gap-1 justify-content-end">
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#718096;" onclick="openEdit('${h.id}')" data-bs-toggle="modal" data-bs-target="#modalHospital" title="Editar"><i class="bi bi-pencil" style="font-size:13px;"></i></button>
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#C0392B;" onclick="openDelete('${h.id}')" data-bs-toggle="modal" data-bs-target="#modalDelete" title="Excluir"><i class="bi bi-trash3" style="font-size:13px;"></i></button>
+        </div></td>
+      </tr>`).join('');
+      
+    document.getElementById('hospitalMobileList').innerHTML=data.map((h, i)=>`
+      <div class="p-3 d-flex align-items-start gap-2 ${i !== data.length - 1 ? 'border-bottom border-light-subtle' : ''}">
+        <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; background:#EBF5FB; color:#2980B9; font-size:15px;"><i class="bi bi-hospital"></i></div>
+        <div class="flex-grow-1" style="min-width:0;">
+          <div class="d-inline-block text-secondary fw-bold rounded px-1 mb-1" style="font-size:10px; background:#F4F6F9;">${h.id}</div>
+          <div class="fw-bold text-dark" style="font-size:13.5px;">${h.nome}</div>
+          <div class="text-secondary mt-1" style="font-size:11.5px;">${h.uf} · ${h.cidade} · ${h.telefone}</div>
+          <div class="d-flex flex-wrap gap-1 mt-2 align-items-center">
+            <code class="fw-bold" style="background:#F4F6F9;padding:1px 5px;border-radius:4px;font-size:11px;color:#718096;">${h.sigla}</code>
+            <span class="fw-semibold rounded-pill ${tipoClass(h.tipo)}" style="font-size:11px; padding:2px 9px;">${h.tipo}</span>
+          </div>
+        </div>
+        <div class="d-flex gap-1 flex-shrink-0">
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#718096;" onclick="openEdit('${h.id}')" data-bs-toggle="modal" data-bs-target="#modalHospital"><i class="bi bi-pencil" style="font-size:13px;"></i></button>
+          <button class="btn btn-light btn-sm d-inline-flex align-items-center justify-content-center p-0 border" style="width:30px; height:30px; border-radius:7px; color:#C0392B;" onclick="openDelete('${h.id}')" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="bi bi-trash3" style="font-size:13px;"></i></button>
+        </div>
+      </div>`).join('');
+  }
+
+  function filterTable(){
+    const q=document.getElementById('searchInput').value.toLowerCase();
+    const tp=document.getElementById('filterTipo').value;
+    renderTable(hospitais.filter(h=>(h.nome.toLowerCase().includes(q)||h.sigla.toLowerCase().includes(q)||h.cidade.toLowerCase().includes(q))&&(!tp||h.tipo===tp)));
+  }
+  function openCreate(){
+    editingId=null;
+    document.getElementById('modalTitle').textContent='Novo Hospital';
+    document.getElementById('modalSub').textContent='Preencha os dados do hospital.';
+    document.getElementById('btnSaveLabel').textContent='Salvar';
+    document.getElementById('fId').value='Gerado automaticamente';
+    ['fNome','fSigla','fTelefone','fCNPJ','fObs'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('fUF').value=''; document.getElementById('fTipo').value='Público';
+    document.getElementById('fCidade').innerHTML='<option value="">Selecione a UF…</option>';
+  }
+  function openEdit(id){
+    const h=hospitais.find(x=>x.id===id); if(!h)return;
+    editingId=id;
+    document.getElementById('modalTitle').textContent='Editar Hospital';
+    document.getElementById('modalSub').textContent=`Editando: ${h.nome}`;
+    document.getElementById('btnSaveLabel').textContent='Atualizar';
+    document.getElementById('fId').value=h.id; document.getElementById('fNome').value=h.nome;
+    document.getElementById('fSigla').value=h.sigla; document.getElementById('fUF').value=h.uf;
+    populateCidades('fCidade',h.uf); setTimeout(()=>document.getElementById('fCidade').value=h.cidade,10);
+    document.getElementById('fTelefone').value=h.telefone; document.getElementById('fCNPJ').value=h.cnpj;
+    document.getElementById('fTipo').value=h.tipo; document.getElementById('fObs').value='';
+  }
+  function saveHospital(){
+    const nome=document.getElementById('fNome').value.trim();
+    const sig=document.getElementById('fSigla').value.trim();
+    const uf=document.getElementById('fUF').value;
+    const cid=document.getElementById('fCidade').value;
+    const tel=document.getElementById('fTelefone').value.trim();
+    const cnpj=document.getElementById('fCNPJ').value.trim();
+    const tp=document.getElementById('fTipo').value;
+    if(!nome||!sig||!uf||!cid||!tel||!cnpj){showAlert('danger','<i class="bi bi-exclamation-triangle-fill"></i> Preencha todos os campos obrigatórios.');return;}
+    if(editingId){
+      hospitais[hospitais.findIndex(x=>x.id===editingId)]={id:editingId,nome,sigla:sig,uf,cidade:cid,telefone:tel,cnpj,tipo:tp};
+      showAlert('success',`<i class="bi bi-check-circle-fill"></i> Hospital <strong class="ms-1">${nome}</strong> atualizado!`);
+    }else{
+      hospitais.push({id:`H-${String(nextId++).padStart(3,'0')}`,nome,sigla:sig,uf,cidade:cid,telefone:tel,cnpj,tipo:tp});
+      showAlert('success',`<i class="bi bi-check-circle-fill"></i> Hospital <strong class="ms-1">${nome}</strong> cadastrado!`);
+    }
+    bootstrap.Modal.getInstance(document.getElementById('modalHospital')).hide();
+    renderTable(hospitais);
+  }
+  function openDelete(id){deletingId=id;const h=hospitais.find(x=>x.id===id);document.getElementById('deleteMsg').textContent=`Excluir ${h?.nome}? Esta ação não pode ser desfeita.`;}
+  function confirmDelete(){
+    const h=hospitais.find(x=>x.id===deletingId);
+    hospitais=hospitais.filter(x=>x.id!==deletingId);
+    bootstrap.Modal.getInstance(document.getElementById('modalDelete')).hide();
+    renderTable(hospitais);
+    showAlert('warning',`<i class="bi bi-info-circle-fill"></i> Hospital <strong class="ms-1">${h?.nome}</strong> removido.`);
+    deletingId=null;
+  }
+  function showAlert(type,html){
+    const c={
+      success:{bg:'bg-success-subtle', text:'text-success', border:'border-success-subtle'},
+      danger:{bg:'bg-danger-subtle', text:'text-danger', border:'border-danger-subtle'},
+      warning:{bg:'bg-warning-subtle', text:'text-warning-emphasis', border:'border-warning-subtle'}
+    }[type];
+    const el=document.createElement('div');
+    el.className=`alert ${c.bg} ${c.text} border ${c.border} d-flex align-items-center gap-2 py-2 px-3 shadow-sm mb-0`;
+    el.style.cssText=`border-radius:10px; font-size:13px; transition:opacity .4s;`;
+    el.innerHTML=html;
+    const cont=document.getElementById('alertContainer'); cont.innerHTML=''; cont.appendChild(el);
+    setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),400);},4000);
+  }
+  
+  renderTable(hospitais);
+</script>
+</body>
+</html>
