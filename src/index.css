@@ -1,0 +1,122 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.focus-ring-danger:focus {
+  box-shadow: 0 0 0 0.25rem rgba(192, 57, 43, 0.25);
+  border-color: #C0392B;
+}
+
+.navbar-hemo {
+  background-color: #1A2332;
+}
+
+.nav-dropdown-item-active {
+  background-color: #FDECEA !important;
+  color: #C0392B !important;
+  font-weight: 600;
+}
+
+.nav-dropdown-item-active i {
+  color: #C0392B !important;
+}
+
+.nav-link-active {
+  border-bottom: 2px solid rgba(192,57,43,.6) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.nav-link-active.opacity-50 {
+  opacity: 1 !important;
+}
+
+.drawer-link-active {
+  background-color: #C0392B !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.stat-card-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.table-header-cell {
+  background: #FAFBFC;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: #718096;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.avatar-circle {
+  width: 30px;
+  height: 30px;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.id-badge {
+  font-size: 10.5px;
+  background: #F4F6F9;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #718096;
+  font-weight: 700;
+}
+
+.blood-type-badge {
+  font-size: 11px;
+  padding: 2px 7px;
+  background: #FDECEA;
+  color: #C0392B;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.action-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid #E2E8F0;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.form-section-label {
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+}
+
+.page-topbar {
+  height: 56px;
+  background: #fff;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.bg-login {
+  background-color: #1A2332;
+  min-height: 100vh;
+}
