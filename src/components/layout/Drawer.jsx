@@ -60,7 +60,7 @@ export default function Drawer() {
           <DrawerLink to="/relatorios/doadores" icon="bi-people">Doadores Ativos</DrawerLink>
           <DrawerLink to="/relatorios/maiores-solicitantes" icon="bi-trophy">Maiores Solicitantes</DrawerLink>
           <DrawerLink to="/relatorios/solicitacoes-hospital" icon="bi-clipboard2-pulse">Sol. por Hospital</DrawerLink>
-          <DrawerLink to="/relatorios/somatorio" icon="bi-bar-chart-line">Somatório por Tipo</DrawerLink>
+          <DrawerLink to="/relatorios/somatorio" icon="bi-bar-chart-line">Somatório por Tipo Sanguíneo</DrawerLink>
         </div>
 
         <SectionLabel>Sistema</SectionLabel>

@@ -17,11 +17,11 @@ function validate(form) {
   if (!form.unidade) e.unidade = 'Selecione a unidade de coleta.';
   if (!form.data) e.data = 'Data é obrigatória.';
   const qty = parseInt(form.quantidade);
-  if (!qty || qty < 200 || qty > 1000) e.quantidade = 'Quantidade deve estar entre 200 e 1000 mL.';
+  if (qty !== 450 && qty !== 500) e.quantidade = 'Selecione 450 mL ou 500 mL.';
   return e;
 }
 
-const doadorOptions = INITIAL_DOADORES.filter((d) => d.status === 'Aprovado').map((d) => ({
+const doadorOptions = INITIAL_DOADORES.filter((d) => d.status === 'Apto para Doação').map((d) => ({
   value: `${d.id}|${d.tipo}|${d.nome}`,
   label: `${d.id} — ${d.nome} (${d.tipo})`,
 }));
@@ -239,22 +239,15 @@ export default function Doacoes() {
                   </FormField>
                 </div>
                 <div className="col-12 col-sm-6">
-                  <FormField label="Quantidade (mL)" required error={formErrors.quantidade} hint="Entre 200 e 1000 mL.">
-                    <div className="input-group">
-                      <input type="number" className="form-control focus-ring-danger text-dark" value={form.quantidade}
-                        min={200} max={1000} step={50}
-                        onChange={(e) => setForm((p) => ({ ...p, quantidade: e.target.value }))}
-                        style={{ borderColor: formErrors.quantidade ? '#C0392B' : '#E2E8F0', fontSize: 13.5 }} />
-                      <span className="input-group-text fw-semibold text-secondary"
-                        style={{ background: '#F4F6F9', borderColor: '#E2E8F0', fontSize: 12.5 }}>mL</span>
-                    </div>
+                  <FormField label="Quantidade (mL)" required error={formErrors.quantidade} hint="Selecione 450 ou 500 mL.">
+                    <select className="form-select focus-ring-danger text-dark" value={form.quantidade}
+                      onChange={(e) => setForm((p) => ({ ...p, quantidade: parseInt(e.target.value) }))}
+                      style={baseInputStyle(formErrors.quantidade)}>
+                      <option value={450}>450 mL</option>
+                      <option value={500}>500 mL</option>
+                    </select>
                   </FormField>
                 </div>
-              </div>
-
-              <div className="d-flex align-items-center gap-2 rounded-3 mt-3 px-3 py-2" style={{ background: '#FDECEA', fontSize: 13 }}>
-                <i className="bi bi-droplet-fill text-danger" style={{ fontSize: 16 }}></i>
-                <span>Volume: <strong className="text-danger">{form.quantidade} mL</strong> — aprox. <strong className="text-danger">{Math.ceil(parseInt(form.quantidade) / 500)} bolsa{Math.ceil(parseInt(form.quantidade) / 500) > 1 ? 's' : ''}</strong></span>
               </div>
             </div>
             <div className="modal-footer border-top border-light-subtle p-3 p-sm-4 d-flex justify-content-end gap-2"

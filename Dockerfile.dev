@@ -1,0 +1,14 @@
+# Dockerfile de desenvolvimento (hot reload)
+FROM oven/bun:1
+
+WORKDIR /app
+
+# Instala dependências primeiro (cache de camada)
+COPY package.json bun.lock ./
+RUN bun install
+
+# O código vem por volume no docker-compose.
+# Vite precisa escutar em 0.0.0.0 para ser acessível fora do container.
+EXPOSE 5173
+
+CMD ["bun", "run", "dev", "--", "--host", "0.0.0.0"]

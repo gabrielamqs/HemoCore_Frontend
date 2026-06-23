@@ -24,7 +24,7 @@ const RELATORIOS_ITEMS = [
   { to: '/relatorios/doadores', icon: 'bi-people', label: 'Doadores Ativos' },
   { to: '/relatorios/maiores-solicitantes', icon: 'bi-trophy', label: 'Maiores Solicitantes' },
   { to: '/relatorios/solicitacoes-hospital', icon: 'bi-clipboard2-pulse', label: 'Sol. por Hospital' },
-  { to: '/relatorios/somatorio', icon: 'bi-bar-chart-line', label: 'Somatório por Tipo' },
+  { to: '/relatorios/somatorio', icon: 'bi-bar-chart-line', label: 'Somatório por Tipo Sanguíneo' },
 ];
 
 function NavDropdown({ label, icon, items, groupPaths }) {

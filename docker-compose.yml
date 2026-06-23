@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      # Monta o código para refletir alterações no host
+      - .:/app
+      # Mantém o node_modules/instalação do container (não sobrescreve com o host)
+      - /app/node_modules
+    environment:
+      # Hot reload confiável dentro de container (file watching via polling)
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true

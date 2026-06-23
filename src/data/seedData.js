@@ -21,13 +21,13 @@ export const UNIDADES_OPTIONS = [
 ];
 
 export const INITIAL_DOADORES = [
-  { id: 'D-001', nome: 'Ana Paula Ferreira', sexo: 'F', uf: 'ES', cidade: 'Vitória', telefone: '(27) 98823-1100', cpf: '123.456.789-00', status: 'Aprovado', tipo: 'A+' },
-  { id: 'D-002', nome: 'Carlos Mendes', sexo: 'M', uf: 'SP', cidade: 'São Paulo', telefone: '(11) 97700-4422', cpf: '234.567.890-11', status: 'Pendente', tipo: 'O-' },
-  { id: 'D-003', nome: 'Fernanda Lima', sexo: 'F', uf: 'RJ', cidade: 'Rio de Janeiro', telefone: '(21) 99133-5500', cpf: '345.678.901-22', status: 'Aprovado', tipo: 'B+' },
-  { id: 'D-004', nome: 'José Antônio da Silva', sexo: 'M', uf: 'MG', cidade: 'Belo Horizonte', telefone: '(31) 98844-6611', cpf: '456.789.012-33', status: 'Reprovado', tipo: 'AB-' },
-  { id: 'D-005', nome: 'Luciana Santos', sexo: 'F', uf: 'ES', cidade: 'Cachoeiro de Itapemirim', telefone: '(28) 99955-7722', cpf: '567.890.123-44', status: 'Aprovado', tipo: 'O+' },
-  { id: 'D-006', nome: 'Roberto Costa', sexo: 'M', uf: 'BA', cidade: 'Salvador', telefone: '(71) 98766-8833', cpf: '678.901.234-55', status: 'Pendente', tipo: 'A-' },
-  { id: 'D-007', nome: 'Patrícia Alves', sexo: 'F', uf: 'PR', cidade: 'Curitiba', telefone: '(41) 99877-9944', cpf: '789.012.345-66', status: 'Aprovado', tipo: 'B-' },
+  { id: 'D-001', nome: 'Ana Paula Ferreira', sexo: 'F', uf: 'ES', cidade: 'Vitória', telefone: '(27) 98823-1100', cpf: '123.456.789-00', status: 'Apto para Doação', tipo: 'A+' },
+  { id: 'D-002', nome: 'Carlos Mendes', sexo: 'M', uf: 'SP', cidade: 'São Paulo', telefone: '(11) 97700-4422', cpf: '234.567.890-11', status: 'Pendente para Doação', tipo: 'O-' },
+  { id: 'D-003', nome: 'Fernanda Lima', sexo: 'F', uf: 'RJ', cidade: 'Rio de Janeiro', telefone: '(21) 99133-5500', cpf: '345.678.901-22', status: 'Apto para Doação', tipo: 'B+' },
+  { id: 'D-004', nome: 'José Antônio da Silva', sexo: 'M', uf: 'MG', cidade: 'Belo Horizonte', telefone: '(31) 98844-6611', cpf: '456.789.012-33', status: 'Inapto para Doação', tipo: 'AB-' },
+  { id: 'D-005', nome: 'Luciana Santos', sexo: 'F', uf: 'ES', cidade: 'Cachoeiro de Itapemirim', telefone: '(28) 99955-7722', cpf: '567.890.123-44', status: 'Apto para Doação', tipo: 'O+' },
+  { id: 'D-006', nome: 'Roberto Costa', sexo: 'M', uf: 'BA', cidade: 'Salvador', telefone: '(71) 98766-8833', cpf: '678.901.234-55', status: 'Pendente para Doação', tipo: 'A-' },
+  { id: 'D-007', nome: 'Patrícia Alves', sexo: 'F', uf: 'PR', cidade: 'Curitiba', telefone: '(41) 99877-9944', cpf: '789.012.345-66', status: 'Apto para Doação', tipo: 'B-' },
 ];
 
 export const INITIAL_HOSPITAIS = [
@@ -43,9 +43,9 @@ export const INITIAL_DOACOES = [
   { id: 'DOA-001', doadorId: 'D-001', doadorNome: 'Ana Paula Ferreira', tipo: 'A+', unidade: 'Hospital Estadual Central', data: '2025-03-12', quantidade: 450 },
   { id: 'DOA-002', doadorId: 'D-002', doadorNome: 'Carlos Mendes', tipo: 'O-', unidade: 'Hospital Santa Casa de Misericórdia', data: '2025-03-15', quantidade: 500 },
   { id: 'DOA-003', doadorId: 'D-003', doadorNome: 'Fernanda Lima', tipo: 'B+', unidade: 'Clínica São Lucas', data: '2025-03-18', quantidade: 500 },
-  { id: 'DOA-004', doadorId: 'D-005', doadorNome: 'Luciana Santos', tipo: 'O+', unidade: 'UPA Cachoeiro', data: '2025-03-20', quantidade: 400 },
+  { id: 'DOA-004', doadorId: 'D-005', doadorNome: 'Luciana Santos', tipo: 'O+', unidade: 'UPA Cachoeiro', data: '2025-03-20', quantidade: 450 },
   { id: 'DOA-005', doadorId: 'D-006', doadorNome: 'Roberto Costa', tipo: 'A-', unidade: 'Hospital Estadual Central', data: '2025-03-22', quantidade: 500 },
-  { id: 'DOA-006', doadorId: 'D-007', doadorNome: 'Patrícia Alves', tipo: 'B-', unidade: 'Hospital Filantrópico do Sul', data: '2025-03-25', quantidade: 350 },
+  { id: 'DOA-006', doadorId: 'D-007', doadorNome: 'Patrícia Alves', tipo: 'B-', unidade: 'Hospital Filantrópico do Sul', data: '2025-03-25', quantidade: 500 },
   { id: 'DOA-007', doadorId: 'D-001', doadorNome: 'Ana Paula Ferreira', tipo: 'A+', unidade: 'Hospital Mater Dei', data: '2025-04-01', quantidade: 500 },
   { id: 'DOA-008', doadorId: 'D-005', doadorNome: 'Luciana Santos', tipo: 'O+', unidade: 'Hospital Estadual Central', data: '2025-04-02', quantidade: 450 },
 ];

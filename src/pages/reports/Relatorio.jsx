@@ -51,19 +51,20 @@ export function RelSomatorio() {
     { tipo: 'O+', doadores: 389, doacoes: 1020, volume: 510000, estoque: 600 },
     { tipo: 'O-', doadores: 80, doacoes: 238, volume: 119000, estoque: 80 },
   ];
+  const ranked = [...data].sort((a, b) => b.doadores - a.doadores);
   return (
-    <ReportLayout title="Somatório por Tipo" subtitle="Relatório de doações agrupadas por tipo sanguíneo">
+    <ReportLayout title="Somatório por Tipo Sanguíneo em Doações" subtitle="Relatório de doações agrupadas por tipo sanguíneo">
       <ReportTable
-        headers={['Tipo Sanguíneo', 'Doadores', 'Doações', 'Volume (mL)', 'Estoque (mL)']}
-        rows={data.map((d) => (
+        headers={['Classificação', 'Tipo Sanguíneo', 'Quantidade de Doadores', 'Volume (mL)']}
+        rows={ranked.map((d, i) => (
           <tr key={d.tipo} className="align-middle">
+            <td className="py-3 px-3 border-bottom border-light-subtle">
+              <span className={`fw-bold rounded-circle d-inline-flex align-items-center justify-content-center ${i < 3 ? 'text-danger' : 'text-secondary'}`}
+                style={{ width: 28, height: 28, fontSize: 12, background: i < 3 ? '#FDECEA' : '#F4F6F9' }}>{i + 1}º</span>
+            </td>
             <td className="py-3 px-3 border-bottom border-light-subtle"><span className="blood-type-badge" style={{ fontSize: 14 }}>{d.tipo}</span></td>
             <td className="py-3 px-3 border-bottom border-light-subtle text-dark">{d.doadores.toLocaleString('pt-BR')}</td>
-            <td className="py-3 px-3 border-bottom border-light-subtle text-dark">{d.doacoes.toLocaleString('pt-BR')}</td>
             <td className="py-3 px-3 border-bottom border-light-subtle text-danger fw-bold">{d.volume.toLocaleString('pt-BR')}</td>
-            <td className="py-3 px-3 border-bottom border-light-subtle">
-              <span className={`fw-semibold ${d.estoque < 200 ? 'text-warning' : 'text-success'}`}>{d.estoque.toLocaleString('pt-BR')}</span>
-            </td>
           </tr>
         ))}
       />
@@ -73,22 +74,24 @@ export function RelSomatorio() {
 
 export function RelDoadores() {
   const data = [
-    { id: 'D-001', nome: 'Ana Paula Ferreira', tipo: 'A+', cidade: 'Vitória/ES', doacoes: 8, ultima: '02/04/2025' },
-    { id: 'D-003', nome: 'Fernanda Lima', tipo: 'B+', cidade: 'Rio de Janeiro/RJ', doacoes: 5, ultima: '18/03/2025' },
-    { id: 'D-005', nome: 'Luciana Santos', tipo: 'O+', cidade: 'Cachoeiro/ES', doacoes: 12, ultima: '02/04/2025' },
-    { id: 'D-007', nome: 'Patrícia Alves', tipo: 'B-', cidade: 'Curitiba/PR', doacoes: 3, ultima: '25/03/2025' },
+    { id: 'D-001', nome: 'Ana Paula Ferreira', cpf: '123.456.789-01', cidade: 'Vitória/ES', tipo: 'A+', doacoes: 8, status: 'Apto para Doação', ultima: '02/04/2025' },
+    { id: 'D-003', nome: 'Fernanda Lima', cpf: '234.567.890-12', cidade: 'Rio de Janeiro/RJ', tipo: 'B+', doacoes: 5, status: 'Apto para Doação', ultima: '18/03/2025' },
+    { id: 'D-005', nome: 'Luciana Santos', cpf: '345.678.901-23', cidade: 'Cachoeiro/ES', tipo: 'O+', doacoes: 12, status: 'Apto para Doação', ultima: '02/04/2025' },
+    { id: 'D-007', nome: 'Patrícia Alves', cpf: '456.789.012-34', cidade: 'Curitiba/PR', tipo: 'B-', doacoes: 3, status: 'Apto para Doação', ultima: '25/03/2025' },
   ];
   return (
-    <ReportLayout title="Doadores Ativos" subtitle="Lista de doadores com status Aprovado e histórico de doações">
+    <ReportLayout title="Doadores Ativos" subtitle="Lista de doadores com status Apto para Doação e histórico de doações">
       <ReportTable
-        headers={['ID', 'Nome', 'Tipo', 'Cidade/UF', 'Doações', 'Última Doação']}
+        headers={['ID', 'Nome', 'CPF', 'Cidade/UF', 'Tipo Sanguíneo', 'Total de Doações', 'Status', 'Data da Última Doação']}
         rows={data.map((d) => (
           <tr key={d.id} className="align-middle">
             <td className="py-3 px-3 border-bottom border-light-subtle"><span className="id-badge">{d.id}</span></td>
             <td className="py-3 px-3 border-bottom border-light-subtle fw-bold text-dark">{d.nome}</td>
-            <td className="py-3 px-3 border-bottom border-light-subtle"><span className="blood-type-badge">{d.tipo}</span></td>
+            <td className="py-3 px-3 border-bottom border-light-subtle text-dark" style={{ fontSize: 12.5 }}>{d.cpf}</td>
             <td className="py-3 px-3 border-bottom border-light-subtle text-dark" style={{ fontSize: 12.5 }}>{d.cidade}</td>
+            <td className="py-3 px-3 border-bottom border-light-subtle"><span className="blood-type-badge">{d.tipo}</span></td>
             <td className="py-3 px-3 border-bottom border-light-subtle fw-bold text-danger">{d.doacoes}</td>
+            <td className="py-3 px-3 border-bottom border-light-subtle"><span className="fw-semibold rounded-pill bg-success-subtle text-success" style={{ fontSize: 11, padding: '2px 9px' }}>{d.status}</span></td>
             <td className="py-3 px-3 border-bottom border-light-subtle text-dark" style={{ fontSize: 12.5 }}>{d.ultima}</td>
           </tr>
         ))}

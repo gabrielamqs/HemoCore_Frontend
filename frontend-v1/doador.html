@@ -43,7 +43,7 @@
       <i class="bi bi-bar-chart-fill fs-6"></i> Relatórios <i class="bi bi-chevron-down ms-auto" style="font-size:11px;"></i>
     </div>
     <div class="collapse" id="hcDrawerSub">
-        <a href="rel_somatorio.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-bar-chart-line" style="font-size:13px;"></i> Somatório por Tipo</a>
+        <a href="rel_somatorio.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-bar-chart-line" style="font-size:13px;"></i> Somatório por Tipo Sanguíneo</a>
         <a href="rel_doadores.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-people" style="font-size:13px;"></i> Doadores Ativos</a>
         <a href="rel_maiores_solicitantes.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-trophy" style="font-size:13px;"></i> Maiores Solicitantes</a>
         <a href="rel_solicitacoes_hospital.html" class="text-decoration-none rounded-2 py-1 pe-2 ps-4 mb-1 d-flex align-items-center gap-2 text-white text-opacity-50" style="font-size:12.5px;"><i class="bi bi-clipboard2-pulse" style="font-size:13px;"></i> Sol. por Hospital</a>
@@ -104,7 +104,7 @@
         <i class="bi bi-bar-chart-fill" style="font-size:14px;"></i> Relatórios <i class="bi bi-chevron-down ms-1" style="font-size:10px;"></i>
       </div>
       <ul class="dropdown-menu shadow-sm border border-light-subtle rounded-bottom-3 mt-0 pt-2 pb-2" style="min-width:220px; border-top:none; border-radius:0 0 12px 12px;">
-        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_somatorio.html" style="font-size:13px;"><i class="bi bi-bar-chart-line text-secondary" style="font-size:14px;"></i> Somatório por Tipo</a></li>
+        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_somatorio.html" style="font-size:13px;"><i class="bi bi-bar-chart-line text-secondary" style="font-size:14px;"></i> Somatório por Tipo Sanguíneo</a></li>
         <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_doadores.html" style="font-size:13px;"><i class="bi bi-people text-secondary" style="font-size:14px;"></i> Doadores Ativos</a></li>
         <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_maiores_solicitantes.html" style="font-size:13px;"><i class="bi bi-trophy text-secondary" style="font-size:14px;"></i> Maiores Solicitantes</a></li>
         <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 px-3 text-dark" href="rel_solicitacoes_hospital.html" style="font-size:13px;"><i class="bi bi-clipboard2-pulse text-secondary" style="font-size:14px;"></i> Sol. por Hospital</a></li>
@@ -158,7 +158,7 @@
           <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EAFAF1; color:#27AE60;">
             <i class="bi bi-check-circle-fill"></i>
           </div>
-          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">978</div><div class="text-secondary mt-1" style="font-size:10.5px;">Aprovados</div></div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">978</div><div class="text-secondary mt-1" style="font-size:10.5px;">Aptos para Doação</div></div>
         </div>
       </div>
       <div class="col">
@@ -166,7 +166,7 @@
           <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#FEF9E7; color:#D4AC0D;">
             <i class="bi bi-clock-fill"></i>
           </div>
-          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">241</div><div class="text-secondary mt-1" style="font-size:10.5px;">Pendentes</div></div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">241</div><div class="text-secondary mt-1" style="font-size:10.5px;">Pendentes para Doação</div></div>
         </div>
       </div>
       <div class="col">
@@ -174,7 +174,7 @@
           <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:40px; height:40px; font-size:17px; background-color:#EBF5FB; color:#2980B9;">
             <i class="bi bi-x-circle-fill"></i>
           </div>
-          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">65</div><div class="text-secondary mt-1" style="font-size:10.5px;">Reprovados</div></div>
+          <div><div class="fw-bold text-dark lh-1" style="font-size:20px;">65</div><div class="text-secondary mt-1" style="font-size:10.5px;">Inaptos para Doação</div></div>
         </div>
       </div>
     </div>
@@ -195,7 +195,7 @@
           </div>
           <select class="form-select focus-ring focus-ring-danger flex-shrink-0 w-auto" id="filterStatus" onchange="filterTable()" style="border-radius:8px; font-size:12.5px; height:36px; border-color:#E2E8F0;">
             <option value="">Todos os status</option>
-            <option>Aprovado</option><option>Pendente</option><option>Reprovado</option>
+            <option>Apto para Doação</option><option>Pendente para Doação</option><option>Inapto para Doação</option>
           </select>
         </div>
       </div>
@@ -313,7 +313,7 @@
           <div class="col-12 col-sm-6">
             <label class="form-label fw-semibold text-dark mb-1" style="font-size:12px;">Status <span class="text-danger">*</span></label>
             <select class="form-select focus-ring focus-ring-danger text-dark" id="fStatus" style="border-color:#E2E8F0; border-radius:8px; font-size:13.5px; padding:8px 12px;">
-              <option>Pendente</option><option>Aprovado</option><option>Reprovado</option>
+              <option>Pendente para Doação</option><option>Apto para Doação</option><option>Inapto para Doação</option>
             </select>
           </div>
           <div class="col-12 col-sm-6">
@@ -359,13 +359,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   let doadores = [
-    {id:'D-001',nome:'Ana Paula Ferreira', sexo:'F',  uf:'ES',cidade:'Vitória',                 telefone:'(27) 98823-1100',cpf:'123.456.789-00',status:'Aprovado', tipo:'A+'},
-    {id:'D-002',nome:'Carlos Mendes', sexo:'M',       uf:'SP',cidade:'São Paulo',               telefone:'(11) 97700-4422',cpf:'234.567.890-11',status:'Pendente', tipo:'O-'},
-    {id:'D-003',nome:'Fernanda Lima', sexo:'F',        uf:'RJ',cidade:'Rio de Janeiro',          telefone:'(21) 99133-5500',cpf:'345.678.901-22',status:'Aprovado', tipo:'B+'},
-    {id:'D-004',nome:'José Antônio da Silva', sexo:'M', uf:'MG',cidade:'Belo Horizonte',          telefone:'(31) 98844-6611',cpf:'456.789.012-33',status:'Reprovado',tipo:'AB-'},
-    {id:'D-005',nome:'Luciana Santos', sexo:'F',       uf:'ES',cidade:'Cachoeiro de Itapemirim', telefone:'(28) 99955-7722',cpf:'567.890.123-44',status:'Aprovado', tipo:'O+'},
-    {id:'D-006',nome:'Roberto Costa', sexo:'M',        uf:'BA',cidade:'Salvador',                telefone:'(71) 98766-8833',cpf:'678.901.234-55',status:'Pendente', tipo:'A-'},
-    {id:'D-007',nome:'Patrícia Alves', sexo:'F',       uf:'PR',cidade:'Curitiba',                telefone:'(41) 99877-9944',cpf:'789.012.345-66',status:'Aprovado', tipo:'B-'},
+    {id:'D-001',nome:'Ana Paula Ferreira', sexo:'F',  uf:'ES',cidade:'Vitória',                 telefone:'(27) 98823-1100',cpf:'123.456.789-00',status:'Apto para Doação', tipo:'A+'},
+    {id:'D-002',nome:'Carlos Mendes', sexo:'M',       uf:'SP',cidade:'São Paulo',               telefone:'(11) 97700-4422',cpf:'234.567.890-11',status:'Pendente para Doação', tipo:'O-'},
+    {id:'D-003',nome:'Fernanda Lima', sexo:'F',        uf:'RJ',cidade:'Rio de Janeiro',          telefone:'(21) 99133-5500',cpf:'345.678.901-22',status:'Apto para Doação', tipo:'B+'},
+    {id:'D-004',nome:'José Antônio da Silva', sexo:'M', uf:'MG',cidade:'Belo Horizonte',          telefone:'(31) 98844-6611',cpf:'456.789.012-33',status:'Inapto para Doação',tipo:'AB-'},
+    {id:'D-005',nome:'Luciana Santos', sexo:'F',       uf:'ES',cidade:'Cachoeiro de Itapemirim', telefone:'(28) 99955-7722',cpf:'567.890.123-44',status:'Apto para Doação', tipo:'O+'},
+    {id:'D-006',nome:'Roberto Costa', sexo:'M',        uf:'BA',cidade:'Salvador',                telefone:'(71) 98766-8833',cpf:'678.901.234-55',status:'Pendente para Doação', tipo:'A-'},
+    {id:'D-007',nome:'Patrícia Alves', sexo:'F',       uf:'PR',cidade:'Curitiba',                telefone:'(41) 99877-9944',cpf:'789.012.345-66',status:'Apto para Doação', tipo:'B-'},
   ];
   const cidadesMap = {
     ES:['Vitória','Serra','Cachoeiro de Itapemirim','Linhares','Colatina'],
@@ -378,7 +378,7 @@
   let editingId=null, deletingId=null, nextId=8;
 
   const ini = n => n.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
-  const stCls = s => s==='Aprovado'?'bg-success bg-opacity-10 text-success':s==='Pendente'?'bg-warning bg-opacity-10 text-warning-emphasis':'bg-danger bg-opacity-10 text-danger';
+  const stCls = s => s==='Apto para Doação'?'bg-success bg-opacity-10 text-success':s==='Pendente para Doação'?'bg-warning bg-opacity-10 text-warning-emphasis':'bg-danger bg-opacity-10 text-danger';
 
   function populateCidades(selId,uf){
     const s=document.getElementById(selId);
@@ -471,7 +471,7 @@
     document.getElementById('btnSaveLabel').textContent='Salvar';
     document.getElementById('fId').value='Gerado automaticamente';
     ['fNome', 'fSexo','fTelefone','fCPF'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('fUF').value=''; document.getElementById('fStatus').value='Pendente';
+    document.getElementById('fUF').value=''; document.getElementById('fStatus').value='Pendente para Doação';
     document.getElementById('fTipoSang').value='A+';
     document.getElementById('fCidade').innerHTML='<option value="">Selecione a UF…</option>';
   }

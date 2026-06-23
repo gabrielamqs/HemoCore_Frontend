@@ -8,12 +8,12 @@ import { useAlert } from '../hooks/useAlert';
 import { INITIAL_DOADORES, CIDADES_MAP, UFS, TIPOS_SANGUINEOS } from '../data/seedData';
 import { isValidCPF, isValidPhone, formatCPF, formatPhone, getInitials } from '../utils/validation';
 
-const STATUS_OPTIONS = ['Pendente', 'Aprovado', 'Reprovado'];
-const stCls = (s) => s === 'Aprovado' ? 'bg-success bg-opacity-10 text-success' : s === 'Pendente' ? 'bg-warning bg-opacity-10 text-warning-emphasis' : 'bg-danger bg-opacity-10 text-danger';
+const STATUS_OPTIONS = ['Pendente para Doação', 'Apto para Doação', 'Inapto para Doação'];
+const stCls = (s) => s === 'Apto para Doação' ? 'bg-success bg-opacity-10 text-success' : s === 'Pendente para Doação' ? 'bg-warning bg-opacity-10 text-warning-emphasis' : 'bg-danger bg-opacity-10 text-danger';
 const SEXO_OPTIONS = [{ value: 'M', label: 'Masculino' }, { value: 'F', label: 'Feminino' }, { value: 'O', label: 'Outro' }];
 const sexoLabel = (v) => SEXO_OPTIONS.find((s) => s.value === v)?.label ?? v;
 
-const EMPTY_FORM = { nome: '', sexo: '', uf: '', cidade: '', telefone: '', cpf: '', status: 'Pendente', tipo: 'A+' };
+const EMPTY_FORM = { nome: '', sexo: '', uf: '', cidade: '', telefone: '', cpf: '', status: 'Pendente para Doação', tipo: 'A+' };
 
 function validate(form) {
   const e = {};
@@ -93,9 +93,9 @@ export default function Doadores() {
     delModal.hide();
   };
 
-  const approved = list.filter((d) => d.status === 'Aprovado').length;
-  const pending = list.filter((d) => d.status === 'Pendente').length;
-  const rejected = list.filter((d) => d.status === 'Reprovado').length;
+  const approved = list.filter((d) => d.status === 'Apto para Doação').length;
+  const pending = list.filter((d) => d.status === 'Pendente para Doação').length;
+  const rejected = list.filter((d) => d.status === 'Inapto para Doação').length;
   const delTarget = list.find((x) => x.id === deletingId);
 
   return (
@@ -109,9 +109,9 @@ export default function Doadores() {
 
       <div className="row row-cols-2 row-cols-lg-4 g-2 g-sm-3 mb-3 mb-sm-4">
         <StatCard icon="bi-people-fill" value={list.length.toLocaleString('pt-BR')} label="Total de Doadores" bgColor="#FDECEA" iconColor="#C0392B" />
-        <StatCard icon="bi-check-circle-fill" value={approved} label="Aprovados" bgColor="#EAFAF1" iconColor="#27AE60" />
-        <StatCard icon="bi-clock-fill" value={pending} label="Pendentes" bgColor="#FEF9E7" iconColor="#D4AC0D" />
-        <StatCard icon="bi-x-circle-fill" value={rejected} label="Reprovados" bgColor="#EBF5FB" iconColor="#2980B9" />
+        <StatCard icon="bi-check-circle-fill" value={approved} label="Aptos para Doação" bgColor="#EAFAF1" iconColor="#27AE60" />
+        <StatCard icon="bi-clock-fill" value={pending} label="Pendentes para Doação" bgColor="#FEF9E7" iconColor="#D4AC0D" />
+        <StatCard icon="bi-x-circle-fill" value={rejected} label="Inaptos para Doação" bgColor="#EBF5FB" iconColor="#2980B9" />
       </div>
 
       <AlertBox alert={alert} />
@@ -121,9 +121,9 @@ export default function Doadores() {
           <SearchInput value={search} onChange={setSearch} placeholder="Buscar doador…" />
           <FilterSelect value={filterStatus} onChange={setFilterStatus} options={[
             { value: '', label: 'Todos os status' },
-            { value: 'Aprovado', label: 'Aprovado' },
-            { value: 'Pendente', label: 'Pendente' },
-            { value: 'Reprovado', label: 'Reprovado' },
+            { value: 'Apto para Doação', label: 'Apto para Doação' },
+            { value: 'Pendente para Doação', label: 'Pendente para Doação' },
+            { value: 'Inapto para Doação', label: 'Inapto para Doação' },
           ]} />
         </>}
         footer={<Pagination current={1} total={filtered.length} onPrev={() => {}} onNext={() => {}} />}>
